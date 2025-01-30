@@ -78,12 +78,6 @@ void ULListStr::push_front(const std::string& val) {
     head_ = add;
     size_++;
 
-    /*
-    Debugging code:
-    std::cout << "changed1";
-    std::cout << head_->first;
-    */
-
   }
   // Update first to the first index that there is a value
   else  {
