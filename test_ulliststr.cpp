@@ -101,8 +101,8 @@ int main(int argc, char* argv[])
 	list.push_front("cloudfront");
 
 	// EXPECT_TRUE(checkListContent(&list, {"cloudfront", "newfront"}));
-  cout << list.get(9) << endl;
-  cout << list.get(10) << endl;
+  cout << list.get(0) << endl;
+  //cout << list.get(10) << endl;
   // Should be Bad Location
   // cout << list.get(11) << endl;
 

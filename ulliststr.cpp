@@ -170,7 +170,7 @@ std::string* ULListStr::getValAtLoc(size_t loc) const {
   // The specific index of the given node of the location
   int indexNum = 0;
   // Number of elements traversed
-  int count = 0;
+  size_t count = 0;
 
   Item* temp = head_;
 
@@ -180,7 +180,7 @@ std::string* ULListStr::getValAtLoc(size_t loc) const {
     // Tells us how many nodes there are to determine
     // valid location because it is used in an expression to
     // calculate is loc is in bounds
-    int nodeCount = temp->last - temp->first;
+    size_t nodeCount = temp->last - temp->first;
 
     // This means the location is in this node and
     // is valid
