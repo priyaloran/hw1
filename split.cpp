@@ -12,12 +12,46 @@ the function below should be the only one in this file.
 
 #include "split.h"
 
-/* Add a prototype for a helper function here if you need */
+// Adding a helper function to continue or discontinue the recursion
+// based on if we at the end of the list
+void splitHelper(Node* splitHead, Node*& odds, Node*& evens);
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  /* Add code here */
-// WRITE YOUR CODE HERE
+  Node* splitHead = in;
+  // Right away we just set original list to NULL and follow with a temp pointer
+  in = nullptr;
+  // Check two cases: if the original list is empty vs if it is filled
+  // If it is empty, we don't need our helper function
+  // We are not told to assume it is not empty
+  if  (splitHead == nullptr)  {
+    return;
+  }
+  // Now call the helper
+  splitHelper(splitHead, odds, evens);
+
 }
 
-/* If you needed a helper function, write it here */
+void splitHelper(Node* splitHead, Node*& odds, Node*& evens) {
+  // This is the base case
+  if (splitHead == nullptr) {
+    // List is empty so stop recursing
+    return;
+  }
+  // This is the recursive function
+  Node* temp = splitHead->next;
+    // The value in the linked list is even
+  if (splitHead->value % 2 == 0)  {
+    // The ensures we don't allocate new memory but just change pointers
+    splitHead->next = evens;
+    evens = splitHead;
+    }
+  // The value in the linked list is odd
+  else {
+    splitHead->next = odds;
+    odds = splitHead;
+  }
+  // Recurse with the next node in the original list
+  // and pass odd and even lists to add to them
+  splitHelper(temp, odds, evens);
+}
